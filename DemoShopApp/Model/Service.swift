@@ -7,7 +7,18 @@
 
 import Foundation
 
-class Service {
+protocol Service {
+    func getList() async -> [ShopItem]
+}
+
+class AppService: Service {
+
+    func getList() async -> [ShopItem] {
+        return ShopItem.testObjects
+    }
+}
+
+class MockService: Service {
 
     func getList() async -> [ShopItem] {
         return ShopItem.testObjects

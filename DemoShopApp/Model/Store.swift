@@ -49,3 +49,12 @@ extension Store {
         return nil
     }
 }
+
+extension Store {
+    static var previewStore: Store {
+        return Store(
+            initialState: AppState(list: []),
+            environment: Environment(service: MockService())
+        )
+    }
+}

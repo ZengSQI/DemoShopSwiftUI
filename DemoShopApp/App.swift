@@ -9,6 +9,12 @@ import SwiftUI
 
 @main
 struct DemoShopApp: App {
+
+    @StateObject var store = Store(
+        initialState: AppState(list: []),
+        environment: Environment(service: AppService())
+    )
+
     var body: some Scene {
         WindowGroup {
             ContentView()
