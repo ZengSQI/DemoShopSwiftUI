@@ -17,7 +17,8 @@ struct DemoShopApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ShopListView()
+                .environmentObject(store)
         }
     }
 }
