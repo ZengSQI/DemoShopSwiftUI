@@ -10,4 +10,5 @@ import Foundation
 struct AppState {
     var list: [ShopItem]
     var cart: [CartItem]
+    var historyOrders: [HistoryOrder]
 }

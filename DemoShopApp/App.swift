@@ -11,16 +11,18 @@ import SwiftUI
 struct DemoShopApp: App {
 
     @StateObject var store = Store(
-        initialState: AppState(list: [], cart: []),
-        environment: Environment(service: AppService())
+        initialState: AppState(list: [], cart: [], historyOrders: []),
+        environment: Environment(
+            //service: AppService()
+            service: MockService()
+        )
     )
 
     var body: some Scene {
         WindowGroup {
             RouterView {
                 ShopListView()
-                    .environmentObject(store)
-            }
+            }.environmentObject(store)
         }
     }
 }

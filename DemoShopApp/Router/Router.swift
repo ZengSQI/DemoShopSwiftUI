@@ -11,7 +11,8 @@ class Router: ObservableObject {
     enum Route: Hashable {
         case detail(item: ShopItem)
         case cart
-        case confirmOrder(items: [ShopItem])
+        case confirmOrder(items: [CartItem])
+        case historyOrder
     }
 
     @Published var path: NavigationPath = NavigationPath()
@@ -24,6 +25,8 @@ class Router: ObservableObject {
             CartView()
         case let .confirmOrder(items):
             ComfirmOrderView(items: items)
+        case .historyOrder:
+            HistoryOrderListView()
         }
     }
 

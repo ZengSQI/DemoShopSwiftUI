@@ -40,7 +40,7 @@ struct CartView: View {
                     showingAlert.toggle()
                     return
                 }
-                let items = store.state.cart.filter { selectedItems.contains($0) }.map { $0.item }
+                let items = store.state.cart.filter { selectedItems.contains($0) }
                 router.navigateTo(.confirmOrder(items: items))
             }
             .buttonStyle(CustomButtonStyle(color: .green))

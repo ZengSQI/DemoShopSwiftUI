@@ -23,6 +23,13 @@ struct ShopListView: View {
         .toolbar {
             ToolbarItem {
                 Button(action: {
+                    router.navigateTo(.historyOrder)
+                }, label: {
+                    Image(systemName: "clock.arrow.circlepath")
+                })
+            }
+            ToolbarItem {
+                Button(action: {
                     router.navigateTo(.cart)
                 }, label: {
                     Image(systemName: "cart.fill")

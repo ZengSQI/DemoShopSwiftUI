@@ -12,7 +12,8 @@ protocol Service {
     func getCart() async -> [CartItem]
     func addToCart(item: ShopItem) async -> [CartItem]
     func deleteCart(item: CartItem) async -> [CartItem]
-
+    func makeOrder(items: [CartItem]) async
+    func getHistoryOrders() async -> [HistoryOrder]
 }
 
 class AppService: Service {
@@ -31,10 +32,22 @@ class AppService: Service {
     func deleteCart(item: CartItem) async -> [CartItem] {
         return []
     }
+
+    func makeOrder(items: [CartItem]) async -> Void {
+
+    }
+
+    func getHistoryOrders() async -> [HistoryOrder] {
+        return []
+    }
 }
 
 class MockService: Service {
     private var cart: [CartItem] = ShopItem.testObjects.prefix(2).map { CartItem(item: $0) }
+    private var historyOrders: [HistoryOrder] = [
+        HistoryOrder(items: ShopItem.testObjects.prefix(3).map { CartItem(item: $0) }),
+        HistoryOrder(items: ShopItem.testObjects.prefix(1).map { CartItem(item: $0) })
+    ]
 
     func getList() async -> [ShopItem] {
         return ShopItem.testObjects
@@ -52,5 +65,15 @@ class MockService: Service {
     func deleteCart(item: CartItem) async -> [CartItem] {
         cart.removeAll(where: { $0 == item })
         return cart
+    }
+
+    func makeOrder(items: [CartItem]) async {
+        historyOrders.append(
+            HistoryOrder(items: items)
+        )
+    }
+
+    func getHistoryOrders() async -> [HistoryOrder] {
+        return historyOrders
     }
 }

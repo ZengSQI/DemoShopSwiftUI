@@ -39,7 +39,7 @@ struct ItemDetailView: View {
                 .buttonStyle(CustomButtonStyle(color: .yellow))
                 .frame(maxWidth: .infinity)
                 Button("立即購買") {
-                    router.navigateTo(.confirmOrder(items: [item]))
+                    router.navigateTo(.confirmOrder(items: [CartItem(item: item)]))
                 }
                 .buttonStyle(CustomButtonStyle(color: .green))
                 .frame(maxWidth: .infinity)

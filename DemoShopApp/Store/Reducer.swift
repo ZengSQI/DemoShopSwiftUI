@@ -34,6 +34,17 @@ extension Store {
                 let items = await environment.service.deleteCart(item: item)
                 return .setCart(items: items)
             }
+        case let .makeOrder(items):
+            Task {
+                await environment.service.makeOrder(items: items)
+            }
+        case .getHistoryOrder:
+            return Task {
+                let orders = await environment.service.getHistoryOrders()
+                return .setHistoryOrder(orders: orders)
+            }
+        case let .setHistoryOrder(orders):
+            state.historyOrders = orders
         }
         return nil
     }
