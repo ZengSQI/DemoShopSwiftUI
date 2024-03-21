@@ -42,11 +42,15 @@ struct ItemDetailView: View {
             }
         })
         .padding()
+        .navigationTitle("商品詳情")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    ItemDetailView(item: ShopItem.testObjects[0])
+    RouterView {
+        ItemDetailView(item: ShopItem.testObjects[0])
+    }
 }
 
 struct CustomButtonStyle: ButtonStyle {

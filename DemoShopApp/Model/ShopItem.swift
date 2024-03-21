@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  ShopItem.swift
 //  DemoShopApp
 //
 //  Created by Steven Zeng on 2024/3/16.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ShopItem: Decodable {
+struct ShopItem: Decodable, Hashable {
     let name: String
     let description: String
     let price: Int

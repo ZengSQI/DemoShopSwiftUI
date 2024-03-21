@@ -17,8 +17,10 @@ struct DemoShopApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ShopListView()
-                .environmentObject(store)
+            RouterView {
+                ShopListView()
+                    .environmentObject(store)
+            }
         }
     }
 }
