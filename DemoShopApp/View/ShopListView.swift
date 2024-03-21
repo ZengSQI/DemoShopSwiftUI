@@ -12,7 +12,7 @@ struct ShopListView: View {
     @EnvironmentObject var router: Router
 
     var body: some View {
-        List(store.state.list, id: \.name) { item in
+        List(store.state.list, id: \.id) { item in
             ListItemView(item: item)
                 .frame(height: 200)
                 .contentShape(Rectangle())

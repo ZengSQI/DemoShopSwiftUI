@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct ShopItem: Decodable, Hashable {
+struct ShopItem: Hashable, Equatable {
+    let id: UUID = UUID()
     let name: String
     let description: String
     let price: Int

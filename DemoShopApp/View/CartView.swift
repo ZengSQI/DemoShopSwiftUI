@@ -11,15 +11,17 @@ struct CartView: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var router: Router
 
+    @State var selectedItem: Set<ShopItem> = []
+
     var body: some View {
-        VStack {
-            List(store.state.cart, id: \.name) { item in
-                CartItemView(item: item)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        router.navigateTo(.detail(item: item))
-                    }
-            }
+        List(store.state.cart, id: \.id) { item in
+            CartItemView(item: item, isSelected: .constant(selectedItem.contains(item)))
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    selectedItem.formSymmetricDifference([item])
+                }
+        }
+        .safeAreaInset(edge: .bottom) {
             Button("結算") {
 
             }
