@@ -32,7 +32,7 @@ struct HistoryOrderListItemView: View {
             }
             HStack {
                 Spacer()
-                Text("總金額: \(order.items.reduce(0, { $0 + $1.item.price}))")
+                Text("總金額: \(order.items.reduce(0) { $0 + $1.item.price })")
                     .font(.caption)
             }
         }
@@ -46,7 +46,7 @@ struct HistoryOrderListItemView: View {
         order: HistoryOrder(
             items: [
                 CartItem(item: ShopItem.testObjects[0]),
-                CartItem(item: ShopItem.testObjects[1])
+                CartItem(item: ShopItem.testObjects[1]),
             ]
         )
     )

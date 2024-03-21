@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct DemoShopApp: App {
-
     @StateObject var store = Store(
         initialState: AppState(list: [], cart: [], historyOrders: []),
         environment: Environment(
-            //service: AppService()
+            // service: AppService()
             service: MockService()
         )
     )

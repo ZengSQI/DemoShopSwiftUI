@@ -8,7 +8,7 @@
 import Foundation
 
 struct CartItem: Hashable, Equatable {
-    let id: UUID = UUID()
+    let id: UUID = .init()
     var item: ShopItem
 
     init(item: ShopItem) {

@@ -49,7 +49,7 @@ struct ItemDetailView: View {
         .navigationTitle("商品詳情")
         .navigationBarTitleDisplayMode(.inline)
         .alert("已加入購物車", isPresented: $showingAlert) {
-            Button("OK", role: .cancel) { }
+            Button("OK", role: .cancel) {}
         }
     }
 }

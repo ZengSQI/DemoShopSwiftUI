@@ -8,7 +8,7 @@
 import Foundation
 
 struct ShopItem: Hashable, Equatable {
-    let id: UUID = UUID()
+    let id: UUID = .init()
     let name: String
     let description: String
     let price: Int

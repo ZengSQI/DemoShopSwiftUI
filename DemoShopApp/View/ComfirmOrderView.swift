@@ -25,8 +25,7 @@ struct ComfirmOrderView: View {
                 HStack {
                     Text("總金額:")
                     Spacer()
-                    Text("$ \(items.reduce(0, { $0 + $1.item.price }))")
-
+                    Text("$ \(items.reduce(0) { $0 + $1.item.price })")
                 }
             }
             Section {
@@ -51,7 +50,7 @@ struct ComfirmOrderView: View {
 
 #Preview {
     RouterView {
-        ComfirmOrderView(items: ShopItem.testObjects.prefix(3).map{ CartItem(item: $0) })
+        ComfirmOrderView(items: ShopItem.testObjects.prefix(3).map { CartItem(item: $0) })
     }
     .environmentObject(
         Store.previewStore

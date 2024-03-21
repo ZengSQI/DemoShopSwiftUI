@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RouterView<Content: View>: View {
-    @StateObject var router: Router = Router()
+    @StateObject var router: Router = .init()
     private let content: Content
 
     init(@ViewBuilder content: @escaping () -> Content) {

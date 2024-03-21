@@ -28,7 +28,7 @@ struct CartView: View {
             }
             .onDelete(perform: { indexSet in
                 let items = indexSet.map { store.state.cart[$0] }
-                items.forEach { item in
+                for item in items {
                     selectedItems.remove(item)
                     store.dispatch(.deleteCartItem(item: item))
                 }
@@ -52,7 +52,7 @@ struct CartView: View {
         .navigationTitle("購物車")
         .navigationBarTitleDisplayMode(.inline)
         .alert("請至少選取一樣商品", isPresented: $showingAlert) {
-            Button("OK", role: .cancel) { }
+            Button("OK", role: .cancel) {}
         }
     }
 }

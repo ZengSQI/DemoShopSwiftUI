@@ -14,7 +14,7 @@ final class Store: ObservableObject {
     private let environment: Environment
 
     init(initialState: AppState, environment: Environment) {
-        self.state = initialState
+        state = initialState
         self.environment = environment
     }
 
@@ -41,7 +41,7 @@ extension Store {
                 cart: ShopItem.testObjects.prefix(2).map { CartItem(item: $0) },
                 historyOrders: [
                     HistoryOrder(items: ShopItem.testObjects.prefix(3).map { CartItem(item: $0) }),
-                    HistoryOrder(items: ShopItem.testObjects.prefix(1).map { CartItem(item: $0) })
+                    HistoryOrder(items: ShopItem.testObjects.prefix(1).map { CartItem(item: $0) }),
                 ]
             ),
             environment: Environment(service: MockService())

@@ -15,7 +15,7 @@ class Router: ObservableObject {
         case historyOrder
     }
 
-    @Published var path: NavigationPath = NavigationPath()
+    @Published var path: NavigationPath = .init()
 
     @ViewBuilder func view(for route: Route) -> some View {
         switch route {

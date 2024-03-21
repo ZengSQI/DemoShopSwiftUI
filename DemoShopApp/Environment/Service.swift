@@ -25,11 +25,11 @@ class AppService: Service {
         return []
     }
 
-    func addToCart(item: ShopItem) async -> [CartItem] {
+    func addToCart(item _: ShopItem) async -> [CartItem] {
         return []
     }
 
-    func deleteCart(item: CartItem) async -> [CartItem] {
+    func deleteCart(item _: CartItem) async -> [CartItem] {
         return []
     }
 
@@ -47,7 +47,7 @@ class MockService: Service {
     var cart: [CartItem] = ShopItem.testObjects.prefix(2).map { CartItem(item: $0) }
     var historyOrders: [HistoryOrder] = [
         HistoryOrder(items: ShopItem.testObjects.prefix(3).map { CartItem(item: $0) }),
-        HistoryOrder(items: ShopItem.testObjects.prefix(1).map { CartItem(item: $0) })
+        HistoryOrder(items: ShopItem.testObjects.prefix(1).map { CartItem(item: $0) }),
     ]
 
     func getList() async -> [ShopItem] {
