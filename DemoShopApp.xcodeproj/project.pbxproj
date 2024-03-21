@@ -14,6 +14,7 @@
 		AD47F6A22BABAAEF00AA5615 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47F6A12BABAAEF00AA5615 /* RouterView.swift */; };
 		AD47F70F2BAD141300AA5615 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47F70E2BAD141300AA5615 /* CartView.swift */; };
 		AD47F7112BAD190C00AA5615 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47F7102BAD190C00AA5615 /* CartItemView.swift */; };
+		AD47F7162BAD252800AA5615 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47F7152BAD252800AA5615 /* Router.swift */; };
 		AD9BA9132BAB6E0F0031D0EB /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BA9122BAB6E0F0031D0EB /* ShopItem.swift */; };
 		AD9BA9152BAB720E0031D0EB /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BA9142BAB720E0031D0EB /* AppState.swift */; };
 		AD9BA9172BAB72690031D0EB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BA9162BAB72690031D0EB /* Store.swift */; };
@@ -60,6 +61,7 @@
 		AD47F6A12BABAAEF00AA5615 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		AD47F70E2BAD141300AA5615 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		AD47F7102BAD190C00AA5615 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		AD47F7152BAD252800AA5615 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AD9BA9122BAB6E0F0031D0EB /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
 		AD9BA9142BAB720E0031D0EB /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		AD9BA9162BAB72690031D0EB /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -123,15 +125,38 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		AD9BA9112BAB6E050031D0EB /* Model */ = {
+		AD47F7122BAD23FD00AA5615 /* Store */ = {
 			isa = PBXGroup;
 			children = (
 				AD9BA9142BAB720E0031D0EB /* AppState.swift */,
 				AD9BA9182BAB72B10031D0EB /* AppAction.swift */,
 				AD9BA9162BAB72690031D0EB /* Store.swift */,
 				AD9BA91A2BAB72DC0031D0EB /* Reducer.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		AD47F7132BAD241600AA5615 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
 				AD9BA91C2BAB745C0031D0EB /* Environment.swift */,
 				AD9BA91E2BAB79580031D0EB /* Service.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		AD47F7142BAD242900AA5615 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AD47F7152BAD252800AA5615 /* Router.swift */,
+				AD47F6A12BABAAEF00AA5615 /* RouterView.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AD9BA9112BAB6E050031D0EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				AD9BA9122BAB6E0F0031D0EB /* ShopItem.swift */,
 			);
 			path = Model;
@@ -143,7 +168,6 @@
 				ADA260982BA4F0D500FFEE95 /* ShopListView.swift */,
 				AD47F69D2BAB81F700AA5615 /* ListItemView.swift */,
 				AD47F69F2BAB88E500AA5615 /* ItemDetailView.swift */,
-				AD47F6A12BABAAEF00AA5615 /* RouterView.swift */,
 				AD47F70E2BAD141300AA5615 /* CartView.swift */,
 				AD47F7102BAD190C00AA5615 /* CartItemView.swift */,
 			);
@@ -176,7 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				ADA260962BA4F0D500FFEE95 /* App.swift */,
+				AD47F7132BAD241600AA5615 /* Environment */,
+				AD47F7122BAD23FD00AA5615 /* Store */,
 				AD9BA9112BAB6E050031D0EB /* Model */,
+				AD47F7142BAD242900AA5615 /* Router */,
 				AD9BA9202BAB81300031D0EB /* View */,
 				ADA2609A2BA4F0D600FFEE95 /* Assets.xcassets */,
 				ADA2609C2BA4F0D600FFEE95 /* Preview Content */,
@@ -448,6 +475,7 @@
 				AD47F6A22BABAAEF00AA5615 /* RouterView.swift in Sources */,
 				AD47F6A02BAB88E500AA5615 /* ItemDetailView.swift in Sources */,
 				ADA260992BA4F0D500FFEE95 /* ShopListView.swift in Sources */,
+				AD47F7162BAD252800AA5615 /* Router.swift in Sources */,
 				AD9BA9132BAB6E0F0031D0EB /* ShopItem.swift in Sources */,
 				AD47F69E2BAB81F700AA5615 /* ListItemView.swift in Sources */,
 				AD9BA91F2BAB79580031D0EB /* Service.swift in Sources */,
