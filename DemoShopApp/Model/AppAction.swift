@@ -10,5 +10,7 @@ import Foundation
 enum AppAction {
     case getList
     case setList(items: [ShopItem])
+    case getCart
+    case setCart(items: [ShopItem])
     case addToCart(item: ShopItem)
 }

@@ -29,6 +29,7 @@ struct RouterView<Content: View>: View {
 class Router: ObservableObject {
     enum Route: Hashable {
         case detail(item: ShopItem)
+        case cart
     }
 
     @Published var path: NavigationPath = NavigationPath()
@@ -37,6 +38,8 @@ class Router: ObservableObject {
         switch route {
         case let .detail(item):
             ItemDetailView(item: item)
+        case .cart:
+            CartView()
         }
     }
 

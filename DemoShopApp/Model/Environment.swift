@@ -9,13 +9,8 @@ import Foundation
 
 final class Environment {
     private(set) var service: Service
-    
+
     init(service: Service) {
         self.service = service
-    }
-
-    func getList() async -> AppAction {
-        let list = await service.getList()
-        return .setList(items: list)
     }
 }

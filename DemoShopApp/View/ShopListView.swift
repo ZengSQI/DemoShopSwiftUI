@@ -19,7 +19,17 @@ struct ShopListView: View {
                 .onTapGesture {
                     router.navigateTo(.detail(item: item))
                 }
-        }.onAppear(perform: {
+        }
+        .toolbar {
+            ToolbarItem {
+                Button(action: {
+                    router.navigateTo(.cart)
+                }, label: {
+                    Image(systemName: "cart.fill")
+                })
+            }
+        }
+        .onAppear(perform: {
             store.dispatch(.getList)
         })
         .navigationTitle("商品列表")
@@ -30,8 +40,8 @@ struct ShopListView: View {
 #Preview {
     RouterView {
         ShopListView()
-            .environmentObject(
-                Store.previewStore
-            )
     }
+    .environmentObject(
+        Store.previewStore
+    )
 }

@@ -34,26 +34,12 @@ final class Store: ObservableObject {
 }
 
 extension Store {
-    func reducer(state: inout AppState, action: AppAction, environment: Environment) -> Task<AppAction, Error>? {
-        switch action {
-        case .getList:
-            return Task {
-                let list = await environment.service.getList()
-                return .setList(items: list)
-            }
-        case .setList(items: let items):
-            state.list = items
-        case .addToCart(item: let item):
-            break
-        }
-        return nil
-    }
-}
-
-extension Store {
     static var previewStore: Store {
         return Store(
-            initialState: AppState(list: []),
+            initialState: AppState(
+                list: ShopItem.testObjects,
+                cart: Array(ShopItem.testObjects.prefix(2))
+            ),
             environment: Environment(service: MockService())
         )
     }

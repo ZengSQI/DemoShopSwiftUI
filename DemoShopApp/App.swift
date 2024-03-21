@@ -11,7 +11,7 @@ import SwiftUI
 struct DemoShopApp: App {
 
     @StateObject var store = Store(
-        initialState: AppState(list: []),
+        initialState: AppState(list: [], cart: []),
         environment: Environment(service: AppService())
     )
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemDetailView: View {
+    @EnvironmentObject var store: Store
     var item: ShopItem
 
     var body: some View {
@@ -30,7 +31,7 @@ struct ItemDetailView: View {
             }
             HStack {
                 Button("加入購物車") {
-
+                    store.dispatch(.addToCart(item: item))
                 }
                 .buttonStyle(CustomButtonStyle(color: .yellow))
                 .frame(maxWidth: .infinity)
@@ -51,6 +52,9 @@ struct ItemDetailView: View {
     RouterView {
         ItemDetailView(item: ShopItem.testObjects[0])
     }
+    .environmentObject(
+        Store.previewStore
+    )
 }
 
 struct CustomButtonStyle: ButtonStyle {
