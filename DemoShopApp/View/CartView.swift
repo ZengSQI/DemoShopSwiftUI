@@ -10,8 +10,8 @@ import SwiftUI
 struct CartView: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var router: Router
-
     @State var selectedItems: Set<CartItem> = []
+    @State private var showingAlert = false
 
     var body: some View {
         List {
@@ -36,7 +36,12 @@ struct CartView: View {
         }
         .safeAreaInset(edge: .bottom) {
             Button("結算") {
-
+                guard !selectedItems.isEmpty else {
+                    showingAlert.toggle()
+                    return
+                }
+                let items = store.state.cart.filter { selectedItems.contains($0) }.map { $0.item }
+                router.navigateTo(.confirmOrder(items: items))
             }
             .buttonStyle(CustomButtonStyle(color: .green))
             .frame(maxWidth: .infinity)
@@ -46,6 +51,9 @@ struct CartView: View {
         })
         .navigationTitle("購物車")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("請至少選取一樣商品", isPresented: $showingAlert) {
+            Button("OK", role: .cancel) { }
+        }
     }
 }
 

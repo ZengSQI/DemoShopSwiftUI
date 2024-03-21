@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ItemDetailView: View {
     @EnvironmentObject var store: Store
+    @EnvironmentObject var router: Router
     var item: ShopItem
+    @State private var showingAlert = false
 
     var body: some View {
         VStack(alignment: .leading, content: {
@@ -32,11 +34,12 @@ struct ItemDetailView: View {
             HStack {
                 Button("加入購物車") {
                     store.dispatch(.addToCart(item: item))
+                    showingAlert.toggle()
                 }
                 .buttonStyle(CustomButtonStyle(color: .yellow))
                 .frame(maxWidth: .infinity)
                 Button("立即購買") {
-
+                    router.navigateTo(.confirmOrder(items: [item]))
                 }
                 .buttonStyle(CustomButtonStyle(color: .green))
                 .frame(maxWidth: .infinity)
@@ -45,6 +48,9 @@ struct ItemDetailView: View {
         .padding()
         .navigationTitle("商品詳情")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("已加入購物車", isPresented: $showingAlert) {
+            Button("OK", role: .cancel) { }
+        }
     }
 }
 
