@@ -21,6 +21,7 @@
 		AD47F71E2BAD5B4A00AA5615 /* HistoryOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47F71D2BAD5B4A00AA5615 /* HistoryOrder.swift */; };
 		AD47F7202BAD602C00AA5615 /* HistoryOrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47F71F2BAD602C00AA5615 /* HistoryOrderListView.swift */; };
 		AD47F7222BAD60BB00AA5615 /* HistoryOrderListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47F7212BAD60BB00AA5615 /* HistoryOrderListItemView.swift */; };
+		AD47F7242BADA2F600AA5615 /* StoreActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD47F7232BADA2F600AA5615 /* StoreActionTests.swift */; };
 		AD9BA9132BAB6E0F0031D0EB /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BA9122BAB6E0F0031D0EB /* ShopItem.swift */; };
 		AD9BA9152BAB720E0031D0EB /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BA9142BAB720E0031D0EB /* AppState.swift */; };
 		AD9BA9172BAB72690031D0EB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9BA9162BAB72690031D0EB /* Store.swift */; };
@@ -74,6 +75,7 @@
 		AD47F71D2BAD5B4A00AA5615 /* HistoryOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrder.swift; sourceTree = "<group>"; };
 		AD47F71F2BAD602C00AA5615 /* HistoryOrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderListView.swift; sourceTree = "<group>"; };
 		AD47F7212BAD60BB00AA5615 /* HistoryOrderListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderListItemView.swift; sourceTree = "<group>"; };
+		AD47F7232BADA2F600AA5615 /* StoreActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreActionTests.swift; sourceTree = "<group>"; };
 		AD9BA9122BAB6E0F0031D0EB /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
 		AD9BA9142BAB720E0031D0EB /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		AD9BA9162BAB72690031D0EB /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				ADA260A72BA4F0D600FFEE95 /* DemoShopAppTests.swift */,
+				AD47F7232BADA2F600AA5615 /* StoreActionTests.swift */,
 			);
 			path = DemoShopAppTests;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADA260A82BA4F0D600FFEE95 /* DemoShopAppTests.swift in Sources */,
+				AD47F7242BADA2F600AA5615 /* StoreActionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,7 +740,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4Z392RE4UH;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.redev.DemoShopAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -757,7 +761,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4Z392RE4UH;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.redev.DemoShopAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

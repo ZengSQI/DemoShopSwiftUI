@@ -35,8 +35,10 @@ extension Store {
                 return .setCart(items: items)
             }
         case let .makeOrder(items):
-            Task {
-                await environment.service.makeOrder(items: items)
+            state.cart = state.cart.filter { !items.contains($0) }
+            return Task {
+                let order = await environment.service.makeOrder(items: items)
+                return .getHistoryOrder
             }
         case .getHistoryOrder:
             return Task {

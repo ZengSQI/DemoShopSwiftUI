@@ -12,7 +12,7 @@ protocol Service {
     func getCart() async -> [CartItem]
     func addToCart(item: ShopItem) async -> [CartItem]
     func deleteCart(item: CartItem) async -> [CartItem]
-    func makeOrder(items: [CartItem]) async
+    func makeOrder(items: [CartItem]) async -> HistoryOrder
     func getHistoryOrders() async -> [HistoryOrder]
 }
 
@@ -33,8 +33,8 @@ class AppService: Service {
         return []
     }
 
-    func makeOrder(items: [CartItem]) async -> Void {
-
+    func makeOrder(items: [CartItem]) async -> HistoryOrder {
+        return HistoryOrder(items: items)
     }
 
     func getHistoryOrders() async -> [HistoryOrder] {
@@ -43,14 +43,15 @@ class AppService: Service {
 }
 
 class MockService: Service {
-    private var cart: [CartItem] = ShopItem.testObjects.prefix(2).map { CartItem(item: $0) }
-    private var historyOrders: [HistoryOrder] = [
+    var list = ShopItem.testObjects
+    var cart: [CartItem] = ShopItem.testObjects.prefix(2).map { CartItem(item: $0) }
+    var historyOrders: [HistoryOrder] = [
         HistoryOrder(items: ShopItem.testObjects.prefix(3).map { CartItem(item: $0) }),
         HistoryOrder(items: ShopItem.testObjects.prefix(1).map { CartItem(item: $0) })
     ]
 
     func getList() async -> [ShopItem] {
-        return ShopItem.testObjects
+        return list
     }
 
     func getCart() async -> [CartItem] {
@@ -67,10 +68,12 @@ class MockService: Service {
         return cart
     }
 
-    func makeOrder(items: [CartItem]) async {
+    func makeOrder(items: [CartItem]) async -> HistoryOrder {
+        let order = HistoryOrder(items: items)
         historyOrders.append(
-            HistoryOrder(items: items)
+            order
         )
+        return order
     }
 
     func getHistoryOrders() async -> [HistoryOrder] {
