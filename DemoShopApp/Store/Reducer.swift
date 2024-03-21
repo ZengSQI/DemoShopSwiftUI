@@ -29,6 +29,11 @@ extension Store {
                 let items = await environment.service.addToCart(item: item)
                 return .setCart(items: items)
             }
+        case let .deleteCartItem(item):
+            return Task {
+                let items = await environment.service.deleteCart(item: item)
+                return .setCart(items: items)
+            }
         }
         return nil
     }

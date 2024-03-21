@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CartItemView: View {
-    var item: ShopItem
+    var cartItem: CartItem
     @Binding var isSelected: Bool
 
     var body: some View {
@@ -20,19 +20,22 @@ struct CartItemView: View {
                 Image(systemName: "circle")
             }
             HStack {
-                Image(item.imageName)
+                Image(cartItem.item.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 80, height: 80)
             }
-            Text(item.name)
+            Text(cartItem.item.name)
             Spacer()
-            Text("$ \(item.price.formatted())")
+            Text("$ \(cartItem.item.price.formatted())")
         })
+        .onTapGesture {
+            isSelected.toggle()
+        }
     }
 }
 
 #Preview {
-    CartItemView(item: ShopItem.testObjects[0], isSelected: .constant(true))
+    CartItemView(cartItem: CartItem(item: ShopItem.testObjects[0]), isSelected: .constant(true))
         .frame(width: 300, height: 300)
 }

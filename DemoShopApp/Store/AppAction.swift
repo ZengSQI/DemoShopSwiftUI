@@ -11,6 +11,7 @@ enum AppAction {
     case getList
     case setList(items: [ShopItem])
     case getCart
-    case setCart(items: [ShopItem])
+    case setCart(items: [CartItem])
     case addToCart(item: ShopItem)
+    case deleteCartItem(item: CartItem)
 }

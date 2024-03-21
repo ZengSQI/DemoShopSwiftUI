@@ -9,8 +9,10 @@ import Foundation
 
 protocol Service {
     func getList() async -> [ShopItem]
-    func getCart() async -> [ShopItem]
-    func addToCart(item: ShopItem) async -> [ShopItem]
+    func getCart() async -> [CartItem]
+    func addToCart(item: ShopItem) async -> [CartItem]
+    func deleteCart(item: CartItem) async -> [CartItem]
+
 }
 
 class AppService: Service {
@@ -18,28 +20,37 @@ class AppService: Service {
         return []
     }
 
-    func getCart() async -> [ShopItem] {
+    func getCart() async -> [CartItem] {
         return []
     }
 
-    func addToCart(item: ShopItem) async -> [ShopItem] {
+    func addToCart(item: ShopItem) async -> [CartItem] {
+        return []
+    }
+
+    func deleteCart(item: CartItem) async -> [CartItem] {
         return []
     }
 }
 
 class MockService: Service {
-    private var cart: [ShopItem] = Array(ShopItem.testObjects.prefix(2))
+    private var cart: [CartItem] = ShopItem.testObjects.prefix(2).map { CartItem(item: $0) }
 
     func getList() async -> [ShopItem] {
         return ShopItem.testObjects
     }
 
-    func getCart() async -> [ShopItem] {
+    func getCart() async -> [CartItem] {
         return cart
     }
 
-    func addToCart(item: ShopItem) async -> [ShopItem] {
-        cart.append(item)
+    func addToCart(item: ShopItem) async -> [CartItem] {
+        cart.append(CartItem(item: item))
+        return cart
+    }
+
+    func deleteCart(item: CartItem) async -> [CartItem] {
+        cart.removeAll(where: { $0 == item })
         return cart
     }
 }

@@ -38,7 +38,7 @@ extension Store {
         return Store(
             initialState: AppState(
                 list: ShopItem.testObjects,
-                cart: Array(ShopItem.testObjects.prefix(2))
+                cart: ShopItem.testObjects.prefix(2).map { CartItem(item: $0) }
             ),
             environment: Environment(service: MockService())
         )
